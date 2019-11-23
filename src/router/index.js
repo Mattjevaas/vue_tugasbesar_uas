@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Userpage from '../views/Userpage.vue'
 import Useredit from '../views/Useredit.vue'
+import StaffPage from '../views/StaffPage.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,12 @@ const routes = [
     path: '/useredit',
     name: 'useredit',
     component: Useredit
-  }
+  },
+  {
+    path: '/staffpage',
+    name: 'staffpage',
+    component: StaffPage
+  },
 ]
 
 const router = new VueRouter({

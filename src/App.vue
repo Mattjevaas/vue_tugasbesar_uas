@@ -191,7 +191,6 @@ export default {
                         this.text = "Berhasil Login!"
                         this.snackbar = true
                         this.resetForm()
-                        location.reload()
                     }
                     else
                     {
