@@ -8,7 +8,7 @@
             justify-center
             class="black--text"
           >
-            <img src="../assets/logo.svg" alt="Vuetify.js" height="200">
+            <img src="../assets/digprint.png" alt="Vuetify.js" height="200">
             <h1 class="black--text mb-2 display-1 text-center">DigiPrint.id</h1>
             <div class="subheading mb-4 text-center">Powered by DeadlinerPAW</div>
             <v-btn
@@ -33,7 +33,7 @@
         >
           <v-flex xs12 sm4 class="my-4">
             <div class="text-center">
-              <h2 class="headline">The best way to start developing</h2>
+              <h2 class="headline">The best way to Print</h2>
               <span class="subheading">
                 Cras facilisis mi vitae nunc
               </span>
@@ -48,7 +48,7 @@
                       <v-icon x-large class="blue--text text--lighten-2">mdi-palette</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-center">Material Design</div>
+                      <div class="headline text-center">Choose Color</div>
                     </v-card-title>
                     <v-card-text>
                       Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
@@ -63,7 +63,7 @@
                       <v-icon x-large class="blue--text text--lighten-2">mdi-flash</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Fast development</div>
+                      <div class="headline">Fast Printing</div>
                     </v-card-title>
                     <v-card-text>
                       Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
@@ -78,7 +78,7 @@
                       <v-icon x-large class="blue--text text--lighten-2">mdi-wrench</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-center">Completely Open Sourced</div>
+                      <div class="headline text-center">Manageable Print</div>
                     </v-card-title>
                     <v-card-text>
                       Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
@@ -96,8 +96,8 @@
       <section>
         <v-parallax src="../assets/section.jpg" height="400">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-4 text-center">Web development has never been easier</div>
-            <em>Kick-start your application today</em>
+            <div class="headline white--text mb-4 text-center">Print has never been easier</div>
+            <em>lets print your image today</em>
             <v-btn
               class="mt-12"
               color="blue lighten-2"
@@ -148,7 +148,7 @@
                       <v-icon class="blue--text text--lighten-2">mdi-map-marker</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title>Chicago, US</v-list-item-title>
+                      <v-list-item-title>Indonesia, IND</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                   <v-list-item>
@@ -156,7 +156,7 @@
                       <v-icon class="blue--text text--lighten-2">mdi-email</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title>john@vuetifyjs.com</v-list-item-title>
+                      <v-list-item-title>johaneswiku@protonmail.ch</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>

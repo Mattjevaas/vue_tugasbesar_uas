@@ -58,7 +58,7 @@
         </v-navigation-drawer>
         <v-app-bar app color="primary">
             <v-app-bar-nav-icon v-if="seen" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-            <img src="./assets/logo.svg" height="40" >
+            <img src="./assets/digprint.png" height="40" >
             <v-toolbar-title class="white--text ma-2">DigiPrint</v-toolbar-title>
             <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" persistent max-width="600px">

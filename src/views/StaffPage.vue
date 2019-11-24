@@ -146,7 +146,6 @@ export default {
         }, 
         updateData(data,id){ 
             this.user.append('status', data); 
-            console.log("test")
             var uri = this.$apiUrl + '/prints/updateStat/' + id; 
             this.$http.post(uri,this.user).then(response =>{
             this.snackbar = true; //mengaktifkan snackbar 
