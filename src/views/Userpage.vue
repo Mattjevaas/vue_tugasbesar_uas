@@ -20,7 +20,7 @@
                     </template>
                     <v-card>
                         <v-card-title >
-                        <span class="headline">Sign Up</span>
+                        <span class="headline">Tambah Print</span>
                         </v-card-title>
                         <v-divider></v-divider>
                         <v-card-text>
@@ -94,7 +94,7 @@
     <v-container> 
         <v-row dense>
         <v-col
-          v-for="printz in prints"
+          v-for="printz in filteredList"
           :key="printz.id"
           cols="12"
         >
@@ -340,7 +340,14 @@ export default {
                     }
                 }
 
-        }, 
+        },
+        computed:{
+            filteredList(){
+                return this.prints.filter(prints =>{
+                    return prints.filename.toLowerCase().includes(this.keyword.toLowerCase())
+                })
+            }
+        },
         mounted(){ 
             if(this.$session.get('jwt')==null || this.$session.get('jwt').data.stat_admin!="User")
             {
