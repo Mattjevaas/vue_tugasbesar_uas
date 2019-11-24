@@ -17,7 +17,7 @@
             <v-divider></v-divider>
 
             <v-list dense>
-                <v-list-item router to="/userpage">
+                <v-list-item v-if="drawstat=='User'" router to="/userpage">
                     <v-list-item-action>
                         <v-icon>mdi-home</v-icon>
                     </v-list-item-action>
@@ -25,12 +25,28 @@
                         <v-list-item-title>Menu Pesan</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item router to="/useredit">
+                <v-list-item v-if="drawstat=='User'" router to="/useredit">
                     <v-list-item-action>
                         <v-icon>mdi-pencil</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
                         <v-list-item-title>Edit Profile</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item v-if="drawstat=='Admin'" router to="/adminpage">
+                    <v-list-item-action>
+                        <v-icon>mdi-home</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Home</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item v-if="drawstat=='Staff'" router to="/staffpage">
+                    <v-list-item-action>
+                        <v-icon>mdi-home</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Home</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
@@ -158,8 +174,9 @@ export default {
       snackbar: false,
       text:'',
       colorsnack: '',
-      src:'',
+      src: require('./assets/images.jpeg'),
       nameuser:'',
+      drawstat:'',
       timeout: 2000,
       form: { 
                 name : '', 
@@ -178,8 +195,8 @@ export default {
                 this.load = true 
                 this.$http.post(uri,this.user).then(response =>{ 
                     //this.$cookie.set('TOKEN', response.data.token);
-                    
-                    if(response.data.error==null)
+
+                    if(response.data.error==null && response.data.data.stat_verif==1)
                     {
                         this.colorsnack = "green"
                         this.dialog = false 
@@ -187,17 +204,38 @@ export default {
                         this.$session.set('jwt', response.data)
                         this.seen = true
                         this.seen2 = false
-                        this.$router.push('userpage')
-                        this.text = "Berhasil Login!"
-                        this.snackbar = true
-                        this.resetForm()
+
+                        if(response.data.data.stat_admin=="Admin")
+                        {
+                            this.$router.push('adminpage')
+                            this.text = "Berhasil Login!"
+                            this.snackbar = true
+                            this.getData()
+                            this.resetForm()
+                        }
+                        else if(response.data.data.stat_admin=="Staff")
+                        {
+                            this.$router.push('staffpage')
+                            this.text = "Berhasil Login!"
+                            this.snackbar = true
+                            this.getData()
+                            this.resetForm()
+                        }
+                        else if(response.data.data.stat_admin=="User")
+                        {
+                            this.$router.push('userpage')
+                            this.text = "Berhasil Login!"
+                            this.snackbar = true
+                            this.getData()
+                            this.resetForm()
+                        }
+                        
                     }
                     else
                     {
                         this.colorsnack = "red"
                         this.text = "Invalid Username or Password!"
                         this.snackbar = true
-                        console.log("test");
                         this.resetForm()
                     }
                     
@@ -262,7 +300,10 @@ export default {
             var uri = this.$apiUrl + '/user/getUser/' + this.$session.get('jwt').data.id
             this.$http.get(uri).then(response =>{ 
             this.nameuser = response.data.data.name
-            this.src = response.data.data.photo
+            this.drawstat = response.data.data.stat_admin
+
+            if(response.data.data.photo!=null)
+                this.src = response.data.data.photo
             })
          },
          close1(){

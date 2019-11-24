@@ -18,7 +18,9 @@ Vue.use(VueGoogleMaps, {
 Vue.use(VueSession)
 Vue.prototype.$cookie = Cookie;
 Vue.prototype.$http = Axios;
-Vue.prototype.$apiUrl = 'http://localhost/ci_tugasbesar_uas/index.php';
+//Vue.prototype.$apiUrl = 'http://localhost/ci_tugasbesar_uas/index.php';
+Vue.prototype.$apiUrl = 'http://api.digiprint.pw/index.php';
+
 
 Vue.config.productionTip = false
 

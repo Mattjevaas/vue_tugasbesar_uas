@@ -342,7 +342,10 @@ export default {
 
         }, 
         mounted(){ 
-
+            if(this.$session.get('jwt')==null || this.$session.get('jwt').data.stat_admin!="User")
+            {
+                this.$router.push('/')
+            }
             this.geolocate();
             this.addMarker();
             this.getData(); 

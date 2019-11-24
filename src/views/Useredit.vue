@@ -96,7 +96,7 @@ export default {
                 }, 
             ], 
             users: [],
-            src: '', 
+            src: require('../assets/images.jpeg'), 
             snackbar: false, 
             color: null, 
             formData : new FormData,
@@ -124,8 +124,9 @@ export default {
                 this.form.email = response.data.data.email
                 this.form.alamat = response.data.data.alamat
                 this.form.no_telp = response.data.data.no_telp
-                this.src = response.data.data.photo
-
+                
+                if(response.data.data.photo!=null)
+                    this.src = response.data.data.photo
             }) 
         }, 
         updateData(){
@@ -188,6 +189,10 @@ export default {
 
         }, 
         mounted(){ 
+            if(this.$session.get('jwt')==null || this.$session.get('jwt').data.stat_admin!="User")
+            {
+                this.$router.push('/')
+            }
             this.getData(); 
         }, 
     } 
